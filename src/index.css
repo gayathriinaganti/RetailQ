@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RetailQ Design System - Modern Blue & White E-commerce Theme
+All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL. Based on blue color palette reference.
+*/
+
+@layer base {
+  :root {
+    /* Blue & White Theme - Based on provided palette */
+    --background: 220 40% 98%;
+    --foreground: 214 85% 21%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 214 85% 21%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 214 85% 21%;
+
+    --primary: 214 85% 21%; /* #0342ab - Deep blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 35% 91%; /* #e9ecf4 - Light blue-gray */
+    --secondary-foreground: 214 85% 21%;
+
+    --muted: 217 35% 91%; /* #e9ecf4 */
+    --muted-foreground: 214 25% 45%;
+
+    --accent: 214 40% 80%; /* #bfccdc - Medium blue-gray */
+    --accent-foreground: 214 85% 21%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 217 35% 87%; /* Slightly darker than muted */
+    --input: 217 35% 87%;
+    --ring: 214 85% 21%;
+
+    --radius: 0.5rem;
+
+    /* RetailQ Blue Custom Tokens */
+    --sidebar-background: 220 40% 98%;
+    --sidebar-foreground: 214 85% 21%;
+    --sidebar-primary: 214 85% 21%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 35% 91%;
+    --sidebar-accent-foreground: 214 85% 21%;
+    --sidebar-border: 217 35% 87%;
+    --sidebar-ring: 214 85% 21%;
+
+    /* Surface variations */
+    --surface-100: 220 40% 98%;
+    --surface-200: 217 35% 91%;
+    --surface-300: 214 40% 85%;
+
+    /* Interactive states */
+    --hover: 217 35% 89%;
+    --active: 214 40% 85%;
+
+    /* Blue-tinted shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(3 66 171 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(3 66 171 / 0.08), 0 2px 4px -2px rgb(3 66 171 / 0.08);
+    --shadow-lg: 0 10px 15px -3px rgb(3 66 171 / 0.10), 0 4px 6px -4px rgb(3 66 171 / 0.10);
+
+    /* Animations */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Dark Blue Theme */
+    --background: 214 85% 6%;
+    --foreground: 217 35% 91%;
+
+    --card: 214 85% 8%;
+    --card-foreground: 217 35% 91%;
+
+    --popover: 214 85% 8%;
+    --popover-foreground: 217 35% 91%;
+
+    --primary: 214 40% 75%; /* Lighter blue for dark mode */
+    --primary-foreground: 214 85% 6%;
+
+    --secondary: 214 85% 12%;
+    --secondary-foreground: 217 35% 91%;
+
+    --muted: 214 85% 12%;
+    --muted-foreground: 214 25% 65%;
+
+    --accent: 214 85% 15%;
+    --accent-foreground: 217 35% 91%;
+
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 85% 18%;
+    --input: 214 85% 18%;
+    --ring: 214 40% 75%;
+
+    /* RetailQ Dark Blue Custom Tokens */
+    --sidebar-background: 214 85% 4%;
+    --sidebar-foreground: 217 35% 85%;
+    --sidebar-primary: 214 40% 75%;
+    --sidebar-primary-foreground: 214 85% 6%;
+    --sidebar-accent: 214 85% 10%;
+    --sidebar-accent-foreground: 217 35% 91%;
+    --sidebar-border: 214 85% 18%;
+    --sidebar-ring: 214 40% 75%;
+
+    /* Surface variations */
+    --surface-100: 214 85% 10%;
+    --surface-200: 214 85% 12%;
+    --surface-300: 214 85% 15%;
+
+    /* Interactive states */
+    --hover: 214 85% 12%;
+    --active: 214 85% 18%;
+
+    /* Dark blue shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(3 66 171 / 0.2);
+    --shadow-md: 0 4px 6px -1px rgb(3 66 171 / 0.25), 0 2px 4px -2px rgb(3 66 171 / 0.25);
+    --shadow-lg: 0 10px 15px -3px rgb(3 66 171 / 0.3), 0 4px 6px -4px rgb(3 66 171 / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-medium antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  /* Smooth focus styles */
+  [data-focus-visible-added] {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  /* Custom utilities */
+  .surface-100 {
+    background-color: hsl(var(--surface-100));
+  }
+  
+  .surface-200 {
+    background-color: hsl(var(--surface-200));
+  }
+  
+  .surface-300 {
+    background-color: hsl(var(--surface-300));
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-0.5;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-hover active:bg-active;
+  }
+
+  .glass-effect {
+    @apply bg-background/80 backdrop-blur-sm border border-border/50;
+  }
+}
